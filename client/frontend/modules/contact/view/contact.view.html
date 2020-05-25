@@ -1,0 +1,75 @@
+<link rel="stylesheet" href="/vicezon_fw_php_angular/client/frontend/modules/contact/view/css/contact_style.css">
+<link rel="stylesheet" href="/vicezon_fw_php_angular/client/frontend/assets/css/short_header.css">
+<header>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="slogan">
+                The best place </br>
+                to buy your devices
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <form class="search">
+                <div class="input-group add-on">
+                    <input id="search_bar" type="search" placeholder="What're you searching for?" class="form-control" autocomplete="off">
+                    <a id="button-search" class="btn btn-success"><i class="fa fa-search"></i></a>
+                    <select id="drop_brands_search">
+                        <option value="0">Selecciona Marca</option>
+                    </select>
+                </div>
+            </form>
+        </div>
+        <div id="autocomplete" class="autocomplete">
+        </div>
+    </div>
+</header>
+<div class="contenido">
+    <div class="pages">
+        <div class="contact_form">
+            <div class="contact_form_map">
+                <div id="map"></div>
+            </div>
+            <div class="contact_form_form">
+                <form id="form_contact" name="form_contact" class="form" novalidate>
+                    <span id="contact_form_form_title">Contact US</span>
+                    <label class="label_form">TELL US YOUR NAME*</label>
+                    <div class="input_double">
+                        <input ng-required="true" ng-model="contact.inputName" id="inputName" name="inputName" type="text"
+                            placeholder="Your Name" class="input_form_doble" ng-minlength="4" ng-maxlength="20"/>
+                        <input ng-required="true" ng-model="contact.inputSurName" id="inputSurName" name="inputSurName" type="text"
+                            placeholder="Your Surname" class="input_form_doble" ng-minlength="4" ng-maxlength="20"/>
+                    </div>
+                    <div class="input_double" 
+                        ng-messages="form_contact.inputName.$error"
+                        ng-show="form_contact.inputName.$dirty">
+                        <div class="error_msg" ng-message="minlength">Name too short</div>
+                        <div class="error_msg" ng-message="maxlength">Name too long</div>
+                        <div class="error_msg" ng-message="required">Required Name</div>
+                    </div>
+                    <div class="input_double" 
+                        ng-messages="form_contact.inputSurName.$error"
+                        ng-show="form_contact.inputSurName.$dirty">
+                        <div class="error_msg" ng-message="minlength">Surname too short</div>
+                        <div class="error_msg" ng-message="maxlength">Surname too long</div>
+                        <div class="error_msg" ng-message="required">Required Surname</div>
+                    </div>
+                    <div class="input_single">
+                        <label class="label_form">TELL US YOUR EMAIL*</label>
+                        <input id="contact_email" name="contact_email" type="text" placeholder="Eg. example@vicezon.com"
+                            class="input_form" value="andanivicente@gmail.com" />
+                    </div>
+                    <div class="input_single">
+                        <label class="label_form">Message*</label>
+                        <textarea id="contact_msg" class="text_area_contact input_form" name="contact_msg" type="text"
+                            placeholder="Write us a message..."
+                            value="">Lorem ipsum dolor sit amet consectetur,</textarea>
+                    </div>
+                    <div class="input_boton">
+                        <input class="btn btn-primary" type="submit" id="submitBtn" name="submit" value="Send"
+                            ng-click="SubmitContact()"/>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
