@@ -1,0 +1,101 @@
+<?php
+    // echo "Dentro de Paths aplicacion";
+    //project
+    define('PROJECT', '/vicezon_fw_php_angularjs/'); 
+
+    //PRETTYSD
+    define('URL_PRETTY', TRUE);
+
+    //SITE ROOT
+    define('SITE_ROOT', $_SERVER['DOCUMENT_ROOT'] . PROJECT);
+
+    //SITE_PATH
+    define('SITE_PATH', 'http://' . $_SERVER['HTTP_HOST'] . PROJECT);
+
+    //UTILS (SITE_ROOT)
+    define('UTILS', SITE_ROOT . 'client/backend/utils/');
+
+    //JS APLICACION
+    define('JS_PATH', SITE_PATH . 'view/js/');
+
+    //VIEW PATH
+    define('INC_PATH', SITE_ROOT . 'view/inc/');
+
+    //model
+    define('MODEL_PATH', SITE_ROOT . 'model/');
+
+    //ADMIN
+    //SITE_PATH ADMIN (SITE_PATH)
+    define('ADMIN_SITE_PATH', SITE_PATH . "modules/admin/");   
+    //ADMIN_MODULES_PATH (SITE_ROOT)
+    define('ADMIN_MODULES_PATH', SITE_ROOT . 'modules/admin/modules/');
+
+
+    //CLIENT
+    //SITE_PATH CLIENT (ruta cliente) (SITE_PATH)
+    define('CLIENT_SITE_PATH', SITE_PATH . "client/backend"); 
+    //CLIENT_MODULES_PATH (ruta hastra modules) (SITE_ROOT)
+    define('CLIENT_MODULES_PATH', SITE_ROOT. 'client/backend/modules/');
+
+        //MODULE CONTACT
+        //VIEW PATH CONTACT (view del contact) (SITE_ROOT)
+        define('CLIENT_CONTACT_VIEW_PATH', CLIENT_MODULES_PATH . 'contact/view/');
+        //CONTACT PATH (SITE_PATH)
+        define('CLIENT_CONTACT_PATH', CLIENT_SITE_PATH . 'modules/contact/');
+        // CSS CONTACT (SITE_PATH)
+        define('CLIENT_CONTACT_CSS', CLIENT_CONTACT_PATH . 'view/css/');
+        //JS CONTACT (SITE_PATH)
+        define('CLIENT_CONTACT_JS', CLIENT_CONTACT_PATH . 'view/js/');
+        
+        //MODULE HOME
+        //VIEW PATH HOME (view del home) (SITE_ROOT)
+        define('CLIENT_HOME_VIEW_PATH', CLIENT_MODULES_PATH . 'home/view/');
+        //HOME PATH (SITE_PATH)
+        define('CLIENT_HOME_PATH', CLIENT_SITE_PATH . 'modules/home/');
+        //HOME/MODEL/MODEL (SITE_ROOT)
+        define('CLIENT_MODEL_HOME', CLIENT_MODULES_PATH . 'home/model/model/');
+
+
+        //MODULE SHOP
+        //VIEW PATH SHOP (view del shop) (SITE_ROOT)
+        define('CLIENT_SHOP_VIEW_PATH', CLIENT_MODULES_PATH . 'shop/view/');
+        //shop PATH (SITE_PATH)
+        define('CLIENT_SHOP_PATH', CLIENT_SITE_PATH . 'modules/shop/');
+        //shop/MODEL/MODEL (SITE_ROOT)
+        define('CLIENT_MODEL_SHOP', CLIENT_MODULES_PATH . 'shop/model/model/');
+
+        //MODULE SEARCH
+        //VIEW PATH SEARCH (view del search) (SITE_ROOT)
+        define('CLIENT_SEARCH_VIEW_PATH', CLIENT_MODULES_PATH . 'search/view/');
+        //seach PATH (SITE_PATH)
+        define('CLIENT_SEARCH_PATH', CLIENT_SITE_PATH . 'modules/search/');
+        //SEARCH/MODEL/MODEL (SITE_ROOT)
+        define('CLIENT_MODEL_SEARCH', CLIENT_MODULES_PATH . 'search/model/model/');
+
+        //MODULE LOGIN
+        //VIEW PATH login (view del login) (SITE_ROOT)
+        define('CLIENT_LOGIN_VIEW_PATH', CLIENT_MODULES_PATH . 'login/view/');
+        //seach PATH (SITE_PATH)
+        define('CLIENT_LOGIN_PATH', CLIENT_SITE_PATH . 'modules/login/');
+        //LOGIN/MODEL/MODEL (SITE_ROOT)
+        define('CLIENT_MODEL_LOGIN', CLIENT_MODULES_PATH . 'login/model/model/');
+        define('CLIENT_UTILS_LOGIN', CLIENT_MODULES_PATH . 'login/utils/');
+
+        //MODULE PROFILE
+        //VIEW PATH login (view del login) (SITE_ROOT)
+        define('CLIENT_PROFILE_VIEW_PATH', CLIENT_MODULES_PATH . 'profile/view/');
+        //seach PATH (SITE_PATH)
+        define('CLIENT_PROFILE_PATH', CLIENT_SITE_PATH . 'modules/profile/');
+        //PROFILE/MODEL/MODEL (SITE_ROOT)
+        define('CLIENT_MODEL_PROFILE', CLIENT_MODULES_PATH . 'profile/model/model/');
+        define('CLIENT_UTILS_PROFILE', CLIENT_MODULES_PATH . 'profile/utils/');
+
+        //MODULE CART
+        //VIEW PATH login (view del login) (SITE_ROOT)
+        define('CLIENT_CART_VIEW_PATH', CLIENT_MODULES_PATH . 'cart/view/');
+        //seach PATH (SITE_PATH)
+        define('CLIENT_CART_PATH', CLIENT_SITE_PATH . 'modules/cart/');
+        //CART/MODEL/MODEL (SITE_ROOT)
+        define('CLIENT_MODEL_CART', CLIENT_MODULES_PATH . 'cart/model/model/');
+        define('CLIENT_UTILS_CART', CLIENT_MODULES_PATH . 'cart/utils/');
+?>
