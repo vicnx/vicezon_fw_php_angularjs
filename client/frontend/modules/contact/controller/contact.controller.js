@@ -1,4 +1,6 @@
-vicezon.controller("contactCtrl", ["$scope","services", function($scope,services) {
+vicezon.controller("contactCtrl", ["$scope","services","$css", function($scope,services,$css) {
+    $css.remove(['/vicezon_fw_php_angularjs/client/frontend/assets/css/long_header.css']);
+    $css.add(['/vicezon_fw_php_angularjs/client/frontend/modules/contact/view/css/contact_style.css','/vicezon_fw_php_angularjs/client/frontend/assets/css/short_header.css']);
     // $scope.contact.mapa = "test";
     $scope.contact = {
         inputName:"",
@@ -30,21 +32,7 @@ vicezon.controller("contactCtrl", ["$scope","services", function($scope,services
                 console.log(response)
             })
         }
-        // var data = {"name": $scope.contact.inputName, "email": $scope.contact.inputEmail, 
-        // "matter": $scope.contact.inputSubject, "message": $scope.contact.inputMessage,"token":'contact_form'};
-        // var contact_form = JSON.stringify(data);
-        
-        // services.post('contact', 'send_cont', contact_form).then(function (response) {
-        //     if (response == 'true') {
-        //             toastr.success('El mensaje ha sido enviado correctamente', 'Mensaje enviado',{
-        //             closeButton: true
-        //         });
-        //     } else {
-        //             toastr.error('El mensaje no se ha enviado', 'Mensaje no enviado',{
-        //             closeButton: true
-        //         });
-        //     }
-        // });
+
     };
     $scope.initialize = function() {
         var ontinyent = {lat: 38.8220593, lng: -0.6063927};
