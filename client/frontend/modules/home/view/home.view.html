@@ -7,18 +7,19 @@
                 <h1>TOP TABLETS</h1>
                 <w3-test-directive></w3-test-directive>
                 <data-owl-carousel class="owl-carousel">
-                    <div owl-carousel-item="" ng-repeat="item in ::items2" class="item">
+                    <div owl-carousel-item="" ng-repeat="item in products" class="item">
                         <div class="product-card">
-                            <div class="badge">{{::item.number}}</div>
+                            <div class="badge">{{$index+1}}</div>
                             <div class="product-tumb">
-                                <img src="{{::item.img}}" alt="product img">
+                                <img src={{item.imagen}} alt="product img">
                             </div>
                             <div class="product-details">
-                                <span class="product-catagory">Tablets</span>
-                                <h4><a href="">{{::item.name}}</a></h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero, possimus nostrum!</p>
+                                <span class="product-catagory">Tablets {{item.idproduct}}</span>
+                                <h4><a href="">{{item.nombre}}</a></h4>
+                                <p>{{item.colores}}</p>
                                 <div class="product-bottom-details">
-                                    <div class="product-price"><small>$96.00</small>$230.99</div>
+                                    <span class="product-catagory">{{item.rating}}</span>
+                                    <div class="product-price">{{item.price}}€</div>
                                     <div class="product-links">
                                         <a href=""><i class="fa fa-heart"></i></a>
                                         <a href=""><i class="fa fa-shopping-cart"></i></a>
@@ -33,9 +34,15 @@
                 <div class= "top-brands">
                     <h1 id="best_brands">POPULAR BRANDS</h1>
                     <div class="top-brands-carousel">
-                        <div id="brands-cards-homepage">
+                        <div id="brands-cards-homepage" >
+                            <div class="brand-card" ng-repeat="brand in brands" id={{brand.idbrand}}>
+                            
+                                <span>{{brand.namebrand}}</span><br></br>
+                                    
+                                <span><small>{{brand.views}}</small></span>
+                            </div>
                         </div>
-                        <a class="more_brands"><i class="fas fa-arrow-circle-right fa-2x"></i></a>
+                        <a class="more_brands" ng-click="showMore_brands()" ><i class="fa fa-arrow-circle-right fa-2x"></i></a>
                     </div>
                 </div>
             <hr></hr>
@@ -49,11 +56,28 @@
             <hr></hr>
             <div class="news_home" id="news_home">
                 <h1>TABLETS NEWS</h1>
-                <div class="news_home_content" id="news_home_content">
+                <div class="news_home_content"  id="news_home_content">
+                    <div class='news_tablet' ng-repeat="new in news">
+                        <div class='img_news_tablet'>
+                            <img src='{{new.urlToImage}}'>
+                        </div>
+                        <div class='content_news_text'>
+                            <div class='title_news_tablet'>
+                                <h6>{{new.title}}</h6>
+                            </div>
+                            <div class='description_news_tablet'>
+                                <p>{{new.description}}</p>
+                            </div>
+                            <div class='data_news_tablet'>
+                                <p>{{new.publishedAt}}</p>
+                            </div>
+                        </div>
+                        <a href='{{new.url}}' class='view_more_news' target='_blank'>VIEW MORE</a>
+                    </div>
                 </div>
                 <div class="buttonloadmore">
-                    <a class="load_more_news">LOAD MORE NEWS</a>
-                    <a class="reset_news">RESET NEWS</a>
+                    <a class="load_more_news" ng-click="showMore_news()">LOAD MORE NEWS</a>
+                    <a class="reset_news" ng-click="reset_news()" >RESET NEWS</a>
                 </div>
             </div>
             <hr></hr>

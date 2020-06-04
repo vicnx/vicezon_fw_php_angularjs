@@ -21,5 +21,32 @@ vicezon.factory("services", ['$http','$q', function ($http, $q) {
           return promise;
         };
         
+
+        obj.get = function (module, functi) {
+          var defered=$q.defer();
+          var promise=defered.promise;
+          $http({
+                method: 'GET',
+                url: serviceBase + module + '&function=' + functi
+            }).success(function(data, status, headers, config) {
+               defered.resolve(data);
+            }).error(function(data, status, headers, config) {
+               defered.reject(data);
+            });
+          return promise;
+      };
+
+      obj.api_get = function (api) {
+        var defered=$q.defer();
+        var promise=defered.promise;
+        $.ajax({
+          async:false,
+            url: Apis.news,
+            success(json) {
+              defered.resolve(json);          
+            }    
+        });
+        return promise
+    };
     return obj;
 }]);

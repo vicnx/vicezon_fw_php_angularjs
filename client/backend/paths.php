@@ -22,7 +22,7 @@
     define('INC_PATH', SITE_ROOT . 'view/inc/');
 
     //model
-    define('MODEL_PATH', SITE_ROOT . 'model/');
+    define('MODEL_PATH', SITE_ROOT . 'client/backend/model/');
 
     //ADMIN
     //SITE_PATH ADMIN (SITE_PATH)
@@ -51,7 +51,7 @@
         //VIEW PATH HOME (view del home) (SITE_ROOT)
         define('CLIENT_HOME_VIEW_PATH', CLIENT_MODULES_PATH . 'home/view/');
         //HOME PATH (SITE_PATH)
-        define('CLIENT_HOME_PATH', CLIENT_SITE_PATH . 'modules/home/');
+        define('CLIENT_HOME_PATH', CLIENT_SITE_PATH . 'client/backend/modules/home/');
         //HOME/MODEL/MODEL (SITE_ROOT)
         define('CLIENT_MODEL_HOME', CLIENT_MODULES_PATH . 'home/model/model/');
 

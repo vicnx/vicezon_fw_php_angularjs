@@ -5,9 +5,10 @@ class home_model {
 
     private function __construct() {
         // return "dentro construct model";
+        // include_once("C:/xampp/htdocs/vicezon_fw_php_angularjs/client/backend/modules/home/model/BLL/home_bll.class.singleton.php");
         // return home_bll::getInstance();
         $this->bll = home_bll::getInstance();
-        // include_once("/vicezon_fw_php/modules/client/modules/home/model/BLL/home_bll.class.singleton.php");
+        
     }
 
     public static function getInstance() {

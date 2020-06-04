@@ -23,7 +23,7 @@ class home_dao {
 
     //top_brands
     public function select_top_brands($db,$arrArgument) {
-        $sql = "SELECT * FROM brands ORDER BY views DESC LIMIT 4 OFFSET $arrArgument";
+        $sql = "SELECT * FROM brands ORDER BY views DESC";
         $stmt = $db->ejecutar($sql);
         return $db->listar($stmt);
     }
