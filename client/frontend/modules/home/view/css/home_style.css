@@ -261,7 +261,6 @@
     /* width: 50%; */
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
     margin-top: 30px;
 }
 .item_more_visited{

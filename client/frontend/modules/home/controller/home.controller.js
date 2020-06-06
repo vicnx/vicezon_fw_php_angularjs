@@ -7,11 +7,10 @@ vicezon.controller("homeCtrl", ["$scope","$css","services","brands","news","prod
 	$scope.products_carousel = products;
 	
     //top Brands Load
-    console.log(brands);
     longitud_brands=brands.length;
-    $scope.position_brand=0;
-    $scope.max_brands=4;
-    $scope.brands=brands;
+    $scope.position_brand=0;//empieza desde la numero 0
+    $scope.max_brands=4;//solo las 4 primeras
+    $scope.brands=brands;//pintar las marcas
 
     $scope.showMore_brands = function(){
         if($scope.max_brands == longitud_brands){
@@ -19,19 +18,19 @@ vicezon.controller("homeCtrl", ["$scope","$css","services","brands","news","prod
             $scope.max_brands=4;
         }else{
             $scope.position_brand=$scope.position_brand+4;
-            $scope.max_brands=$scope.max_brands+4;
+            $scope.max_brands=$scope.max_brands+4;//modifica para las 4 siguientes
         }
     }
 
     //product top visited
-    $scope.limit_more_visited_products=6;
+    $scope.limit_more_visited_products=6;//solo 6 productos al inicio
     longitud_products=products.length;
-    $scope.products_more_visited=products;
+    $scope.products_more_visited=products;//pintar los productos
     $scope.showMore_products =function(){
         if(longitud_products == $scope.limit_more_visited_products){
-            $scope.limit_more_visited_products=6;
+            $scope.limit_more_visited_products=6;//vuelve a los 6 primeros
         }else{
-            $scope.limit_more_visited_products=$scope.limit_more_visited_products+6;
+            $scope.limit_more_visited_products=$scope.limit_more_visited_products+6;//modificar al hacer click el limit
         }
     }
     $scope.reset_products = function(){
