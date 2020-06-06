@@ -18,22 +18,14 @@ class home_model {
         }
         return self::$_instance;
     }
-
-    //carousel
-    public function carousel_home(){
-        // return "carousel";
-        return $this->bll->carousel_home_BLL();
+    //get products
+    public function get_products(){
+        return $this->bll->get_products_BLL();
     }
-
+    
     //top_brands
-    public function top_brands($arrArgument){
-        // return $arrArgument;
-        return $this->bll->top_brands_BLL($arrArgument);
+    public function get_brands(){
+        return $this->bll->get_brands_BLL();
     }
 
-    //products_more_visited
-    public function products_more_visited($arrArgument){
-        // return $arrArgument;
-        return $this->bll->products_more_visited_BLL($arrArgument);
-    }
 }

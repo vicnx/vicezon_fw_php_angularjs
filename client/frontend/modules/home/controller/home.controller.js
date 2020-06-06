@@ -1,30 +1,41 @@
-vicezon.controller("homeCtrl", ["$scope","$css","services","brands","news", function($scope,$css,services,brands,news) {
+vicezon.controller("homeCtrl", ["$scope","$css","services","brands","news","products", function($scope,$css,services,brands,news,products) {
     // CSS
     $css.remove(['/vicezon_fw_php_angularjs/client/frontend/assets/css/short_header.css']);
     $css.add(['/vicezon_fw_php_angularjs/client/frontend/modules/home/view/css/home_style.css','/vicezon_fw_php_angularjs/client/frontend/assets/css/long_header.css']);
-    
-    //get carousel elements
-    services.get('home', 'carousel_home').then(function (response) {
-		$scope.products = response;
-	});
+
+    //Pintar productos (carousel)
+	$scope.products_carousel = products;
 	
     //top Brands Load
     console.log(brands);
     longitud_brands=brands.length;
-    cont_brands_principio=0;
-    cont_brands_final=4;
-    $scope.brands=brands.slice(cont_brands_principio,cont_brands_final);
+    $scope.position_brand=0;
+    $scope.max_brands=4;
+    $scope.brands=brands;
 
-    //boton Showmore_brands
     $scope.showMore_brands = function(){
-        if(cont_brands_final == longitud_brands){
-            cont_brands_principio=0;
-            cont_brands_final=4;
+        if($scope.max_brands == longitud_brands){
+            $scope.position_brand=0;
+            $scope.max_brands=4;
         }else{
-            cont_brands_principio=cont_brands_principio+4;
-            cont_brands_final=cont_brands_final+4;
+            $scope.position_brand=$scope.position_brand+4;
+            $scope.max_brands=$scope.max_brands+4;
         }
-        $scope.brands=brands.slice(cont_brands_principio,cont_brands_final);
+    }
+
+    //product top visited
+    $scope.limit_more_visited_products=6;
+    longitud_products=products.length;
+    $scope.products_more_visited=products;
+    $scope.showMore_products =function(){
+        if(longitud_products == $scope.limit_more_visited_products){
+            $scope.limit_more_visited_products=6;
+        }else{
+            $scope.limit_more_visited_products=$scope.limit_more_visited_products+6;
+        }
+    }
+    $scope.reset_products = function(){
+        $scope.limit_more_visited_products=6;
     }
 
     //news tablets (api)

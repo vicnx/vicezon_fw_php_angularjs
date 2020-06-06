@@ -5,9 +5,8 @@
         <div id="contenido">
             <div class="carousel-tablets" ng-init="locacarousel()">
                 <h1>TOP TABLETS</h1>
-                <w3-test-directive></w3-test-directive>
                 <data-owl-carousel class="owl-carousel">
-                    <div owl-carousel-item="" ng-repeat="item in products" class="item">
+                    <div owl-carousel-item="" ng-repeat="item in products_carousel | orderBy:'-rating' | limitTo:10" class="item">
                         <div class="product-card">
                             <div class="badge">{{$index+1}}</div>
                             <div class="product-tumb">
@@ -35,10 +34,8 @@
                     <h1 id="best_brands">POPULAR BRANDS</h1>
                     <div class="top-brands-carousel">
                         <div id="brands-cards-homepage" >
-                            <div class="brand-card" ng-repeat="brand in brands" id={{brand.idbrand}}>
-                            
+                            <div class="brand-card" ng-repeat="brand in brands |orderBy:'-views' |limitTo:max_brands:position_brand" id={{brand.idbrand}}>
                                 <span>{{brand.namebrand}}</span><br></br>
-                                    
                                 <span><small>{{brand.views}}</small></span>
                             </div>
                         </div>
@@ -49,9 +46,34 @@
                 <div class= "products_view">
                     <h1 id="products_view_title">Products more visited</h1>
                     <div id="products_more_visited">
+                        <div class="products_more_visited_products">
+                            <div class="item_more_visited" ng-repeat="item in products_more_visited | orderBy: '-views' | limitTo:limit_more_visited_products" id={{item.idproduct}}>
+                                <div class="product-card">
+                                    <div class="badge">{{$index+1}}</div>
+                                    <div class="product-tumb">
+                                        <img src={{item.imagen}} alt="product img">
+                                    </div>
+                                    <div class="product-details">
+                                        <span class="product-catagory">Tablets {{item.idproduct}}</span>
+                                        <h4><a href="">{{item.nombre}}</a></h4>
+                                        <p>{{item.colores}}</p>
+                                        <div class="product-bottom-details">
+                                            <span class="product-catagory">{{item.rating}}</span>
+                                            <div class="product-price">{{item.price}}€</div>
+                                            <div class="product-links">
+                                                <a href=""><i class="fa fa-heart"></i></a>
+                                                <a href=""><i class="fa fa-shopping-cart"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <a class="loadmorebutton">LOAD MORE</a>
-        
+                    <div class="buttonloadmore">
+                        <a class="load_more_news" ng-click="showMore_products()">LOAD MORE</a>
+                        <a class="reset_news" ng-click="reset_products()" >RESET PRODUCTS</a>
+                    </div>
                 </div>
             <hr></hr>
             <div class="news_home" id="news_home">

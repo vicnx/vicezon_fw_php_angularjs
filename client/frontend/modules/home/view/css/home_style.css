@@ -246,9 +246,27 @@
     color: #fbb72c;
 }
 /* TOP VIEW */
+.products_view{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
 #products_more_visited{
-    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.products_more_visited_products{
+    /* width: 50%; */
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     margin-top: 30px;
+}
+.item_more_visited{
+    margin-right: 20px;
+    /* margin-top: 20PX; */
+    cursor: pointer;
+    margin-bottom: 20px;
 }

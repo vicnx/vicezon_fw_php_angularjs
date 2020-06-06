@@ -5,16 +5,12 @@
         <uri>list_home</uri>
     </function>
     <function>
-        <name>carousel_home</name>
-        <uri>carousel_home</uri>
+        <name>get_products</name>
+        <uri>get_products</uri>
     </function>
     <function>
-        <name>top_brands</name>
-        <uri>top_brands</uri>
-    </function>
-    <function>
-        <name>products_more_visited</name>
-        <uri>products_more_visited</uri>
+        <name>get_brands</name>
+        <uri>get_brands</uri>
     </function>
     <function>
         <name>vista_admin</name>

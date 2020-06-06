@@ -7,12 +7,14 @@ function ($routeProvider, $locationProvider) {
             controller: "homeCtrl",
             resolve:{
                 brands: function(services){
-                    return services.post('home', 'top_brands',0);
+                    return services.post('home', 'get_brands');
                 },
                 news: function(services){
                     return services.api_get(Apis.news);
+                },
+                products: function(services){
+                    return services.post('home','get_products');
                 }
-
             }
 
         })

@@ -10,27 +10,18 @@
 	    }
 
 	    public static function getInstance() {
-            // return "bll dentro";
 	        if (!(self::$_instance instanceof self)){
 	            self::$_instance = new self();
 	        }
 	        return self::$_instance;
-	    }
-
-		//carousel
-	    public function carousel_home_BLL(){
-			// return "carousel bll a dao";
-	      return $this->dao->select_data_carousel_home($this->db);
 		}
 		
-		//carousel
-		public function top_brands_BLL($arrArgument){
-			return $this->dao->select_top_brands($this->db,$arrArgument);
+		//get products
+		public function get_products_BLL(){
+	      return $this->dao->get_products($this->db);
 		}
-
-		//products_more_visited
-		public function products_more_visited_BLL($arrArgument){
-			// return "test";
-			return $this->dao->select_products_more_visited($this->db,$arrArgument);
+		
+		public function get_brands_BLL(){
+			return $this->dao->get_brands($this->db);
 		}
 	}
