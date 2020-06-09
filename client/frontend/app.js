@@ -1,4 +1,4 @@
-var vicezon = angular.module('vicezon', ['ngRoute','ngMaterial','ngMessages','angularCSS']);
+var vicezon = angular.module('vicezon', ['ngRoute','ngMaterial','ngMessages','angularCSS','ui.bootstrap']);
 vicezon.config(['$routeProvider', '$locationProvider',
 function ($routeProvider, $locationProvider) {
     $routeProvider
@@ -21,6 +21,18 @@ function ($routeProvider, $locationProvider) {
         .when("/contact", {
             templateUrl: "frontend/modules/contact/view/contact.view.html", 
             controller: "contactCtrl",
+        })
+        .when("/shop", {
+            templateUrl: "frontend/modules/shop/view/shop.view.html", 
+            controller: "shopCtrl",
+            resolve:{
+                products: function(services){
+                    return services.post('shop','get_products');
+                },
+                brands: function(services){
+                    return services.post('shop', 'get_brands');
+                }
+            }
         })
         .otherwise({
             redirectTo: '/home'

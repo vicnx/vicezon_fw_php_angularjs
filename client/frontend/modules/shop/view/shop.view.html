@@ -1,0 +1,70 @@
+<div class="contenido">
+    <div class="pages">
+        <div id="contenido">
+<div class="shop">
+    <div id="filters" class="filters">
+        <article class="card-group-item">
+            <div class="card-header">
+                <span class="title">Sort </span>
+            </div>
+            <div class="order">
+                <div id="orderby" class="card-body filtersbody custom-checkbox">
+                <label>Sort by price: </label>
+                    <select id="order_price" ng-model="order_products">
+                        <option value="idproduct">Disabled</option>
+                        <option value="nombre">Por nombre ascendente</option>
+                        <option value="price">Ascendente (más baratos primero)</option>
+                        <option value="-price">Descendente (más caros primero)</option>
+                    </select>
+                </div>
+            </div>
+        </article>
+        <article class="card-group-item">
+            <div class="card-header">
+                <span class="title">Brands </span>
+            </div>
+            <div class="filter-content">
+                <div id="filters_brand" class="card-body filtersbody custom-checkbox">
+                    <div class="brand" ng-repeat="item in brands">
+                        <input type="checkbox" id="{{item.idbrand}}" name="{{item.idbrand}}" value="{{item.idbrand}}" ng-model="check_brands[item.idbrand]" ng-change='onChecked(item.idbrand)'>
+                        <label for="{{item.namebrand}}">{{item.namebrand}}</label>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>
+    <div class="list_shop">
+        <input type="text" class="form-control" placeholder="Filter..." ng-model="filterText">
+        <div id="list" class="list">
+            <span ng-show="no_products">NO PRODUCTOS</span>
+            <div class="product-card" ng-repeat="item in products_filtered= (page_products | filter : {nombre: filterText} | filter:filterbrands(item)) | limitTo:8:8*(page-1) | orderBy: order_products">
+                <div class="badge">{{$index+1}}</div>
+                <div class="product-tumb">
+                    <img src={{item.imagen}} alt="product img">
+                </div>
+                <div class="product-details">
+                    <span class="product-catagory">Tablets {{item.idproduct}}</span>
+                    <h4><a href="">{{item.nombre}}</a></h4>
+                    <p>{{item.colores}}</p>
+                    <div class="product-bottom-details">
+                        <span class="product-catagory">Stock: {{item.stock}}</span>
+                        <span class="product-catagory">Brand: {{item.marca}}</span>
+                        <span class="product-catagory">Views: {{item.views}}</span>
+                        <div class="product-price">{{item.price}}€</div>
+                        <div class="product-links">
+                            <a href=""><i class="fa fa-heart"></i></a>
+                            <a href=""><i class="fa fa-shopping-cart"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <uib-pagination class="pagination-sm pagination" total-items="products_filtered.length" ng-model="page"
+        ng-change="pageChanged()" previous-text="&lsaquo;" next-text="&rsaquo;" items-per-page=8></uib-pagination>
+            <!-- <uib-pagination total-items="totalItems" ng-model="currentPage" items-per-page="itemsPerPage" max-size="maxSize" boundary-link-numbers="true" rotate="false"></uib-pagination> -->
+    </div>
+    
+</div>
+</div>
+</div>
+</div>
