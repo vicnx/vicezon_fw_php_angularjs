@@ -26,66 +26,10 @@ class shop_model {
     public function get_brands(){
         return $this->bll->get_brands_BLL();
     }
-    // //list
-    // public function list_products($arrArgument){
-    //     //esto lo que hace es hacer como un controlador entre las diferentes opciones!
-    //     if($arrArgument['option'] == "all"){//sin filtros
-    //         return $this->bll->all_products_BLL($arrArgument);
-    //     }
-    //     if($arrArgument['option'] == "bybrand"){//fioltrar solo con marca
-    //         // return "FUNCIONA bybrand";
-    //         return $this->bll->bybrand_products_BLL($arrArgument);
-    //     }
-    //     if($arrArgument['option'] == "bybrandsorder"){//filtrar con order y marca
-    //         // return "FUNCIONA bybrandorder";
-    //         return $this->bll->bybrandsorder_products_BLL($arrArgument);
-    //     }
 
-    //     if($arrArgument['option'] == "onlyorder"){//filtrar con order y marca
-    //         // return "FUNCIONA bybrandorder";
-    //         return $this->bll->onlyorder_products_BLL($arrArgument);
-    //     }
+    //details
+    public function get_selected_product($idproduct){
+        return $this->bll->get_selected_product_BLL($idproduct);
+    }
 
-    //     if($arrArgument['option'] == "busqueda_text_marca"){//filtrar con busqueda de text y marca
-    //         // return $arrArgument;
-    //         return $this->bll->busqueda_text_marca_products_BLL($arrArgument);
-    //     }
-    //     if($arrArgument['option'] == "busqueda_text"){//filtrar con busqueda de text (marca null)
-    //         // return $arrArgument;
-    //         return $this->bll->busqueda_text_products_BLL($arrArgument);
-    //     }
-
-    //     if($arrArgument['option'] == "busqueda_marca"){//filtrar con busqueda solo con marca
-    //         // return $arrArgument;
-    //         return $this->bll->busqueda_marca_products_BLL($arrArgument);
-    //     }
-    //     // return $arrArgument["option"]; 
-    // }
-
-    // //load filters
-    // public function load_filters(){
-    //     // return "load filters"; 
-    //     return $this->bll->load_filters_BLL();
-    // }
-
-    // //details
-    // public function details($arrArgument){
-    //     return $this->bll->details_BLL($arrArgument);
-    // }
-
-    // public function check_like_on_click($data){
-    //     return $this->bll->check_like_on_click_BLL($data);
-    // }
-
-    // public function do_like($data){
-    //     return $this->bll->do_like_BLL($data);
-    // }
-    // public function remove_like($data){
-    //     return $this->bll->remove_like_BLL($data);
-    // }
-
-    // public function check_likes($data){
-    //     // return $data;
-    //     return $this->bll->check_likes_BLL($data);
-    // }
 }

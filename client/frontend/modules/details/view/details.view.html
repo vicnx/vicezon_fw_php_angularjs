@@ -1,0 +1,54 @@
+
+<div class="container details">
+      <div class="card">
+      <div class="card-body row">
+          <div class="col-sm-12 col-md-6" id="image-container">
+                <div id="main-img">
+                    <main class="primary" style="background-image:url({{product.imagen}}" class="mx-auto"></main>
+              </div>
+              <!-- <div class="container-fluid">
+                  <div class="row mx-auto" id="thumbnail-container">                      
+                       <a class="thumbnail selected" data-big="https://source.unsplash.com/random">
+                            <div class="thumb">
+                                <img src="https://source.unsplash.com/random" alt="">
+                            </div>
+                       </a>                       
+                  </div>
+              </div> -->
+              <span id="favorite-button" class="btn"><i class="fa fa-heart"></i></span>
+          </div>        
+          <div class="col-sm-12 col-md-6" id="product-information">
+             <h4 class="p-0 m-0" id="product-title">{{product.nombre}}</h4>
+              <span id="product-short"><small>{{product.fpublic}}</small></span>
+            <div class="container-fluid">
+                <div class="row">
+                <span id="old-price" class="text-danger"><strike>{{product.price+1000}} €</strike></span> &nbsp; &nbsp;<h5 id="price">{{product.price}} €</h5>
+                </div>
+            </div>
+             <div id="product-variables">
+                 <label>Colour</label><br>
+                 <select class="form-control"> 
+                    <option ng-repeat="colour in colores">
+                        {{colour}}
+                    </option>
+                 </select>
+                 
+                 <div id="text">
+                     <small>
+                     <label>More info</label>
+                     <ul>
+                         <li>Stock: {{product.stock}}</li>                         
+                         <li>Brand: {{marca}} ~ id: {{product.marca}}</li>
+                         <li>Rating: {{product.rating}}</li>
+                     </ul>
+                     </small>
+                 </div>
+             </div>
+             <div id="add-to-cart" class="mt-2">
+                 <button class="btn btn-success add-to-cart"> Add to Cart</button>
+             </div>
+          </div>
+          
+      </div>
+  </div> <!-- end card -->
+</div> <!-- end container-->

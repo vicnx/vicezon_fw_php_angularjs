@@ -60,7 +60,12 @@ vicezon.controller("shopCtrl",["$scope","services","$css","products","brands", f
         }else{
             $scope.no_products=false;
         }
- 
+        
+
         
     }
+    //details
+    $scope.details = function (idproduct) {
+        window.location.href = "#/shop/"+idproduct;
+    };
 } ])

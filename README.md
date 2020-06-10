@@ -84,5 +84,6 @@ _Herramientas utilizadas para la realización del proyecto_
 * En el filtro de marcas aparece la cantidad total de productos de esa marca que aparecen.
 * En el sort se ha añadido la opcion de filtrar por nombre.
 * Se ha añadido el numero total de productos mostrados.
+* Nueva apariencia del details.
 
 

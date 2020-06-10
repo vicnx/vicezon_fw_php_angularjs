@@ -34,6 +34,20 @@ function ($routeProvider, $locationProvider) {
                 }
             }
         })
+
+        .when("/shop/:id",{
+            templateUrl: "frontend/modules/details/view/details.view.html", 
+            controller: "detailsCtrl",
+            resolve: {
+                product_selected: function (services, $route) {
+                    return services.get('shop', 'get_selected_product', $route.current.params.id);
+                },
+                brands: function(services){
+                    return services.post('shop', 'get_brands');
+                }
+            }
+        })
+
         .otherwise({
             redirectTo: '/home'
         });            

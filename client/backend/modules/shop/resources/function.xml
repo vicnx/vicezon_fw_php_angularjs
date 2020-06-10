@@ -9,39 +9,7 @@
         <uri>get_brands</uri>
     </function>
     <function>
-        <name>list_shop</name>
-        <uri>list_shop</uri>
-    </function>
-    <function>
-        <name>list_products</name>
-        <uri>list_products</uri>
-    </function>
-    <function>
-        <name>load_filters</name>
-        <uri>load_filters</uri>
-    </function>
-    <function>
-        <name>details</name>
-        <uri>details</uri>
-    </function>
-    <function>
-        <name>busqueda</name>
-        <uri>busqueda</uri>
-    </function>
-    <function>
-        <name>check_likes</name>
-        <uri>check_likes</uri>
-    </function>
-    <function>
-        <name>check_like_on_click</name>
-        <uri>check_like_on_click</uri>
-    </function>
-    <function>
-        <name>do_like</name>
-        <uri>do_like</uri>
-    </function>
-    <function>
-        <name>remove_like</name>
-        <uri>remove_like</uri>
+        <name>get_selected_product</name>
+        <uri>get_selected_product</uri>
     </function>
 </functions>
