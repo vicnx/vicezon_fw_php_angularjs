@@ -27,7 +27,7 @@
                 <div id="filters_brand" class="card-body filtersbody custom-checkbox">
                     <div class="brand" ng-repeat="item in brands">
                         <input type="checkbox" id="{{item.idbrand}}" name="{{item.idbrand}}" value="{{item.idbrand}}" ng-model="check_brands[item.idbrand]" ng-change='onChecked(item.idbrand)'>
-                        <label for="{{item.namebrand}}">{{item.namebrand}}</label>
+                        <label for="{{item.namebrand}}">({{(products_filtered | filter: {marca:item.idbrand}).length}})&nbsp;{{item.namebrand}}</label>
                     </div>
                 </div>
             </div>
@@ -35,9 +35,12 @@
     </div>
     <div class="list_shop">
         <input type="text" class="form-control" placeholder="Filter..." ng-model="filterText">
+        <div class="product_counter">
+            <span class="text">Productos mostrados: {{products_filtered.length}}</span>
+        </div>
         <div id="list" class="list">
             <span ng-show="no_products">NO PRODUCTOS</span>
-            <div class="product-card" ng-repeat="item in products_filtered= (page_products | filter : {nombre: filterText} | filter:filterbrands(item)) | limitTo:8:8*(page-1) | orderBy: order_products">
+            <div class="product-card" ng-repeat="item in products_filtered= (page_products | filter : {nombre: filterText} | filter:filterbrands(item)) | orderBy: order_products | limitTo:8:8*(page-1) ">
                 <div class="badge">{{$index+1}}</div>
                 <div class="product-tumb">
                     <img src={{item.imagen}} alt="product img">
