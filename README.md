@@ -20,11 +20,11 @@ https://www.alvarolara.com/2013/06/14/instalar-apache-php-mysql-y-phpmyadmin-en-
 
 ## Images / Gifs de la funcionalidad: 📷
 #### Homepage
-![Image of Homepage](https://imgur.com/Jm08tGR.gif)
+![Image of Homepage](https://imgur.com/Jm08tGR)
 #### Contact
-![Image of Contact](https://imgur.com/glyWR1F.gif)
+![Image of Contact](https://imgur.com/glyWR1F)
 #### Shop & Filters
-![Image of Shop](https://imgur.com/s5XoTxX.gif)
+![Image of Shop](https://imgur.com/s5XoTxX)
 
 ## Tecnologias
 * [JavaScript](https://developer.mozilla.org/es/docs/Web/JavaScript)
