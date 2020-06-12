@@ -61,11 +61,13 @@ vicezon.controller("shopCtrl",["$scope","services","$css","products","brands", f
         });
         //ahora realizamos una comprobacion del length de page_products, si es 0
         //se pone la variable no_products a true y con ng-show se muestra el mensaje en el html
-        if($scope.page_products.length==0){
-            $scope.no_products=true;
-        }else{
-            $scope.no_products=false;
-        }
+        // if($scope.products_filtered.length==0){
+        //     // console.log('TRUE')
+        //     $scope.no_products=false;
+        // }else{
+        //     // console.log('FALSE')
+        //     $scope.no_products=true;
+        // }
         
 
         

@@ -1,0 +1,51 @@
+<div class="contenido">
+    <div class="pages">
+        <div id="contenido">
+            <form id="form_login" name="form_login" class="login_form" autocomplete="off" novalidate>
+                <p class="h4 mb-4">LOGIN</p>
+                <div id="login_msg"></div>
+                <div class="form-row mb-4">
+                    <div class="col">
+                        <!-- INPUT -->
+                        <input ng-required="true" type="text" ng-model="login.username" id="username" name="username" class="form-control" placeholder="Username" 
+                        ng-minlength="4" ng-maxlength="20">
+                        <!-- ERROR -->
+                        <div ng-messages="form_login.username.$error" ng-show="form_login.username.$dirty || form_login.username.$touched || login_Submitted">
+                            <div class="alert alert-danger" ng-message="maxlength">Username muy largo</div>
+                            <div class="alert alert-danger" ng-message="minlength">Username muy corto</div>
+                            <div class="alert alert-danger" ng-message="required">Required Username</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row mb-4">
+                    <div class="col">
+                        <!-- INPUT -->
+                        <input ng-required="true" type="password" ng-model="login.password" id="password" name="password" class="form-control" placeholder="Password"
+                        ng-minlength="8">
+                        <!-- ERROR -->
+                        <div ng-messages="form_login.password.$error" ng-show="form_login.password.$dirty || form_login.password.$touched || login_Submitted">
+                            <div class="alert alert-danger" ng-message="minlength">La contraseña no cumple los requisitos.</div>
+                            <div class="alert alert-danger" ng-message="required">La contraseña no puede estar vacia.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="input_boton">
+                    <input class="btn btn-info btn-block my-4" type="submit" id="submitBtn_login" name="submit_login" value="Login"
+                        ng-click="login_Submitted=true; SubmitLogin()"/>
+                </div>
+                
+                <div class="social_login">
+                    <a id="google_login" class="btn_google"><i class="fab fa-google"></i>Google</a>             
+                    <a id="github_login" class="btn_ghub"><i class="fab fa-github"></i>GitHub</a>  
+                </div>
+                <hr>
+                <p>Not a member?
+                    <a id="not_a_member">Register</a>
+                </p>
+                <p>Recover password
+                    <a id="recover">HERE</a>
+                </p>
+            </form>
+        </div>
+    </div>
+</div>

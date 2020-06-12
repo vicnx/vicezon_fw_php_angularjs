@@ -11,7 +11,42 @@ vicezon.controller("searchCtrl",["$scope","services","$rootScope", function($sco
 
   services.post('home', 'get_brands').then(function(response){
     $scope.brands_search = response;
-    console.log($scope.brands_search)
+    // console.log($scope.brands_search)
   })
 
-} ])
+}])
+
+vicezon.controller("menuCtrl",["$scope","services","$rootScope","$route", function($scope,services,$rootScope,$route){
+  var token = localStorage.getItem("id_token");
+  if(token){
+    services.post('login','activity_check_token',token).then(function(response){
+      if(response=="true"){
+        services.post('login','get_user',token).then(function(response){
+          console.log(token)
+          localStorage.setItem('id_token',response['token']);
+          console.log(localStorage.getItem("id_token"))
+          $scope.login=true
+          $scope.username=response['result'][0]['username']
+          $scope.avatar=response['result'][0]['avatar']
+          
+        })
+      }else{
+        localStorage.removeItem("id_token");
+        toastr.error("Invalid token, Re Login","Error");
+        setTimeout(function () {
+            location.href = '#/login/';
+        }, 1000);
+      }
+    })
+  }else{
+    console.log("el puto token es null")
+  }
+  $scope.desconectar = function(){
+    localStorage.removeItem("id_token");
+    toastr.success("cerrada la sesiopn con exito","Logout");
+    setTimeout(function () {
+        location.href = '#/home/';
+    }, 1000);
+    $route.reload();
+  }
+}])

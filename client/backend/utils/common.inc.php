@@ -57,7 +57,7 @@ function loadModel($model_path, $model_name, $function, $arrArgument = '',$arrAr
 // }
 
 function generate_token_JWT($id){
-    $data = file_get_contents("view/js/apis_app.json"); //obtengo el contenido de apis.json
+    $data = file_get_contents(SITE_ROOT."client/frontend/assets/js/apis_app.json"); //obtengo el contenido de apis.json
     $apis= json_decode($data,true); //lo convierto en array
     $secret=$apis[0]['secret_token'];//obtengo el sewcret
     $header = '{"typ":"JWT", "alg":"HS256"}';
@@ -73,7 +73,7 @@ function generate_token_JWT($id){
 }
 
 function decode_token($token){
-    $data = file_get_contents("view/js/apis_app.json"); //obtengo el contenido de apis.json
+    $data = file_get_contents(SITE_ROOT."client/frontend/assets/js/apis_app.json"); //obtengo el contenido de apis.json
     $apis= json_decode($data,true); //lo convierto en array
     $secret=$apis[0]['secret_token'];//obtengo el sewcret
     $JWT = new JWT;

@@ -116,3 +116,16 @@ md-nav-bar .md-nav-bar {
     margin-left: 5px;
     color:white;
 }
+
+.toast-error{
+    background-color: #bd362f !important;
+}
+
+
+.toast-success{
+    background-color: #51a351 !important;
+}
+
+#menu{
+    background-color: darkslateblue;
+}

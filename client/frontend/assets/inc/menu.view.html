@@ -1,12 +1,65 @@
-<div id="menu"  >
-  <md-content class="md-padding">
+<div id="menu" ng-controller="menuCtrl">
+  <nav id="menunav" class="navbar navbar-expand-lg navbar-dark">
+    <a class="navbar-brand" href="#">Vicezon</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a id="home" href="#home" class="nav-link">Home</a>
+        </li>
+        <li class="nav-item">
+          <a id="contact" href="#shop" class="nav-link">Shop</a>
+        </li>
+        <li class="nav-item">
+          <a id="contact" href="#contact" class="nav-link">Contact</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ml-auto nav-flex-icons">
+          <li id="menu_li_login" ng-show="login" class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown"aria-haspopup="true" aria-expanded="false">
+                <img id="menu_avatar" class="menu_avatar" src="{{avatar}}" alt=""><span id="username">{{username}}</span>
+            </a>
+            <div id="menu_init" class="dropdown-menu dropdown-menu-right bg-dark" aria-labelledby="navbarDropdownMenuLink-333">
+                <a id="profile" class="dropdown-item">Perfil</a>
+                <a id="admin_panel" class="dropdown-item">Panel Admin</a>
+                <a id="logout" ng-click='desconectar()' class="dropdown-item">Desconectar</a>
+            </div>
+          </li>
+          <li id="menu_li_login" ng-hide="login" class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown"aria-haspopup="true" aria-expanded="false">
+              <i class="fa fa-user"></i><span>Login</span>
+          </a>
+          <div id="menu_init" class="dropdown-menu dropdown-menu-right bg-dark" aria-labelledby="navbarDropdownMenuLink-333">
+              <a href="#login" id="login" class="dropdown-item">Login</a>
+              <a id="register" class="dropdown-item">Register</a>
+          </div>
+        </li>
+          <li id="cart">
+            <i id="cart_menu" class="fa fa-shopping-cart"></i>
+            <span class="counter_cart"></span>
+          </li>
+      </ul>
+    </div>
+  </nav>
+
+</div>
+
+
+
+
+<!-- <div id="menu" >
+  <md-content class="md-padding" ng-controller="menuCtrl">
     <md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links">
       <md-nav-item md-nav-href="#home" name="Home">Home</md-nav-item>
       <md-nav-item md-nav-href="#contact" name="contact">contact</md-nav-item>
       <md-nav-item md-nav-href="#shop" name="shop">Shop</md-nav-item>
+      <md-nav-item ng-hide="login" md-nav-href="#login" name="login">Login</md-nav-item>
     </md-nav-bar>
   </md-content>
-</div>
+</div> -->
 <header>
   <div class="container">
       <div class="row justify-content-center">
