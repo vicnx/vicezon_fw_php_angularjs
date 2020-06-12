@@ -1,4 +1,4 @@
-<div id="menu" ng-controller="menu">
+<div id="menu"  >
   <md-content class="md-padding">
     <md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links">
       <md-nav-item md-nav-href="#home" name="Home">Home</md-nav-item>
@@ -17,11 +17,11 @@
       </div>
       <div class="row justify-content-center">
           <form class="search">
-              <div class="input-group add-on">
-                  <input id="search_bar" type="search" placeholder="What're you searching for?" class="form-control" autocomplete="off">
+              <div class="input-group add-on" ng-controller="searchCtrl">
+                  <input id="search_bar" data-provide="typeahead" autocomplete = "off" ng-model="search" placeholder="What're you searching for?" class="form-control select2-search search_query" typeahead-on-select="onSelect(search)" uib-typeahead="product as product.nombre for product in autocomplete_data | filter:$viewValue | limitTo:5" >
                   <a id="button-search" class="btn btn-success"><i class="fa fa-search"></i></a>
                   <select id="drop_brands_search">
-                      <option value="0">Selecciona Marca</option>
+                    <option ng-repeat="brand in brands_search" value="{{brand.idbrand}}">{{brand.namebrand}}</option>
                   </select>
               </div>
           </form>

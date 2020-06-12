@@ -1,11 +1,12 @@
 
 <div class="container details">
-      <div class="card">
-      <div class="card-body row">
-          <div class="col-sm-12 col-md-6" id="image-container">
+    <div class="card">
+        <div class="card-body row">
+            <div class="col-sm-12 col-md-6" id="image-container">
+                <span ng-click="return()" id="return-button" class="btn"><i class="fa fa-arrow-left"></i></span>
                 <div id="main-img">
                     <main class="primary" style="background-image:url({{product.imagen}}" class="mx-auto"></main>
-              </div>
+                </div>
               <!-- <div class="container-fluid">
                   <div class="row mx-auto" id="thumbnail-container">                      
                        <a class="thumbnail selected" data-big="https://source.unsplash.com/random">
@@ -16,6 +17,7 @@
                   </div>
               </div> -->
               <span id="favorite-button" class="btn"><i class="fa fa-heart"></i></span>
+              
           </div>        
           <div class="col-sm-12 col-md-6" id="product-information">
              <h4 class="p-0 m-0" id="product-title">{{product.nombre}}</h4>
@@ -47,8 +49,8 @@
              <div id="add-to-cart" class="mt-2">
                  <button class="btn btn-success add-to-cart"> Add to Cart</button>
              </div>
-          </div>
+            </div>
           
-      </div>
-  </div> <!-- end card -->
-</div> <!-- end container-->
+        </div>
+  </div>
+</div>

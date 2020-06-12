@@ -65,6 +65,25 @@
     transition-timing-function: ease-in;
   }
   
+  #return-button{
+    color:rgba(0, 202, 209, 0.5);
+    font-family: "Font Awesome 5 Free";
+    font-size:1.5em;
+    content: "\f004";
+    background:#fff;
+    border:1px solid rgba(0, 0, 0, 0.25);
+    border-radius: 50%;
+    padding-top:7px;
+    height:50px;
+    width:50px;
+    text-align:center;
+    box-shadow:0px 1px 10px 0px rgba(0, 0, 0, 0.25);
+  }
+  #return-button:hover{
+    color:rgb(0, 174, 255);
+    transition-timing-function: ease-in-out;
+    transition:0.3s;
+  }
   .card #image-container span#favorite-button{
     color:rgba(231, 76, 60, 0.5);
     font-family: "Font Awesome 5 Free";

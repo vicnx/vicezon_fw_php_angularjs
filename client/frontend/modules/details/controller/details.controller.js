@@ -19,6 +19,11 @@ vicezon.controller("detailsCtrl", ["$scope","$css","services","product_selected"
             $scope.marca = brand.namebrand; 
         }
     });
+
+    //boton return
+    $scope.return = function() {
+        window.history.back();
+      };
     
 }])
 

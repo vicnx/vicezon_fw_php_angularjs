@@ -6,7 +6,7 @@
             <div class="carousel-tablets" ng-init="locacarousel()">
                 <h1>TOP TABLETS</h1>
                 <data-owl-carousel class="owl-carousel">
-                    <div owl-carousel-item="" ng-repeat="item in products_carousel | orderBy:'-rating' | limitTo:10" class="item">
+                    <div owl-carousel-item="" ng-click="details(item.idproduct)" ng-repeat="item in products_carousel | orderBy:'-rating' | limitTo:10" class="item">
                         <div class="product-card">
                             <div class="badge">{{$index+1}}</div>
                             <div class="product-tumb">
@@ -14,7 +14,7 @@
                             </div>
                             <div class="product-details">
                                 <span class="product-catagory">Tablets {{item.idproduct}}</span>
-                                <h4><a href="">{{item.nombre}}</a></h4>
+                                <h4><a ng-href="#/shop/{{item.idproduct}}">{{item.nombre}}</a></h4>
                                 <p>{{item.colores}}</p>
                                 <div class="product-bottom-details">
                                     <span class="product-catagory">Rating: {{item.rating}}</span>
@@ -34,7 +34,7 @@
                     <h1 id="best_brands">POPULAR BRANDS</h1>
                     <div class="top-brands-carousel">
                         <div id="brands-cards-homepage" >
-                            <div class="brand-card" ng-repeat="brand in brands |orderBy:'-views' |limitTo:max_brands:position_brand" id={{brand.idbrand}}>
+                            <div class="brand-card" ng-click="brand_to_shop(brand.idbrand)" ng-repeat="brand in brands |orderBy:'-views' |limitTo:max_brands:position_brand" id={{brand.idbrand}}>
                                 <span>{{brand.namebrand}}</span><br></br>
                                 <span><small>{{brand.views}}</small></span>
                             </div>
@@ -47,7 +47,7 @@
                     <h1 id="products_view_title">Products more visited</h1>
                     <div id="products_more_visited">
                         <div class="products_more_visited_products">
-                            <div class="item_more_visited" ng-repeat="item in products_more_visited | orderBy: '-views' | limitTo:limit_more_visited_products" id={{item.idproduct}}>
+                            <div class="item_more_visited" ng-click="details(item.idproduct)" ng-repeat="item in products_more_visited | orderBy: '-views' | limitTo:limit_more_visited_products" id={{item.idproduct}}>
                                 <div class="product-card">
                                     <div class="badge">{{$index+1}}</div>
                                     <div class="product-tumb">
@@ -55,7 +55,7 @@
                                     </div>
                                     <div class="product-details">
                                         <span class="product-catagory">Tablets {{item.idproduct}}</span>
-                                        <h4><a href="">{{item.nombre}}</a></h4>
+                                        <h4><a ng-href="#/shop/{{item.idproduct}}">{{item.nombre}}</a></h4>
                                         <p>{{item.colores}}</p>
                                         <div class="product-bottom-details">
                                             <span class="product-catagory">Views: {{item.views}}</span>

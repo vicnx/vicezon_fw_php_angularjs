@@ -1,4 +1,4 @@
-vicezon.controller("homeCtrl", ["$scope","$css","services","brands","news","products", function($scope,$css,services,brands,news,products) {
+vicezon.controller("homeCtrl", ["$scope","$css","services","brands","news","products","$rootScope", function($scope,$css,services,brands,news,products,$rootScope) {
     // CSS
     $css.remove(['/vicezon_fw_php_angularjs/client/frontend/assets/css/short_header.css']);
     $css.add(['/vicezon_fw_php_angularjs/client/frontend/modules/home/view/css/home_style.css','/vicezon_fw_php_angularjs/client/frontend/assets/css/long_header.css']);
@@ -57,6 +57,31 @@ vicezon.controller("homeCtrl", ["$scope","$css","services","brands","news","prod
         cont_news=4;
         $scope.news=news.articles.slice(0,cont_news);
     }
+
+    //details
+    $scope.details = function (idproduct) {
+        window.location.href = "#/shop/"+idproduct;
+    };
+
+    // brand to shop
+    $scope.brand_to_shop = function (idbrand) {
+        $rootScope.check_brands=[];
+        for (let index = 0; index < brands.length; index++) {
+            if(index == idbrand){
+                $rootScope.check_brands[index] = true;
+            }
+            
+        }
+        console.log($rootScope.check_brands);
+        // angular.forEach(brands, function(brand){
+        //     if(brand.idbrand == idbrand){
+        //         $rootScope.check_brands = "pene";
+        //     }
+        // });
+        // $rootScope.check_brands = obj;
+        window.location.href = "#/shop/";
+        
+    };
 }])
 
 
