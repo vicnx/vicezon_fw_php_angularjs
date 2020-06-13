@@ -1,10 +1,10 @@
 <?php
-function validate_username_registered(){
-    $username= $_POST['username_register'];
-    $first_name= $_POST['first_name_register'];
-    $last_name= $_POST['last_name_register'];
-    $email= $_POST['email_register'];
-    $passwordd= $_POST['password_register'];
+function validate_username_registered($data){
+    $username= $data['username'];
+    $first_name= $data['first_name'];
+    $last_name= $data['last_name'];
+    $email= $data['email'];
+    $passwordd= $data['password'];
     $password_encrypt= password_hash($passwordd, PASSWORD_DEFAULT);
     
     $check_username= array( 'username'=>$username,'check_type'=>'username');

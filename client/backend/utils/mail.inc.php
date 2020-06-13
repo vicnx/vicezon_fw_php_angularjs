@@ -30,7 +30,7 @@
             case 'check':
                 $address = $mail['inputEmail'];
                 $subject= "Gracias por registrarte en Vicezon.";
-                $ruta = pretty("?module=login&function=active_user&param=" . $mail['token'], true);
+                $ruta = "http://localhost/vicezon_fw_php_angularjs/client/#/login/active_user". $mail['token'];
                 $msg = 'Gracias por unirte a nuestra aplicaci&oacute;n<br> Para finalizar el registro, pulsa ' . $ruta; 
                 $result = send_mailgun('admin@vicezon.com', $address, $subject, $msg);
                 return $result;

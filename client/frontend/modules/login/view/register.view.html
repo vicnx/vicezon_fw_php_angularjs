@@ -1,0 +1,93 @@
+<div class="contenido">
+    <div class="pages">
+        <div id="contenido">
+            <form id="form_register" name="form_register" class="register_form" autocomplete="off" novalidate>
+                <p class="h4 mb-4">Register</p>
+                <div id="register_msg"></div>
+                <div class="form-row mb-4">
+                    <div class="col">
+                        <!-- INPUT -->
+                        <input type="text" id="username" name="username" class="form-control" placeholder="Username" 
+                        ng-required="true" ng-model="register.username" ng-minlength="4" ng-maxlength="20">
+                        <!-- ERROR -->
+                        <div ng-messages="form_register.username.$error" ng-show="form_register.username.$dirty || form_register.username.$touched || register_Submitted">
+                            <div class="alert alert-danger" ng-message="maxlength">Username muy largo</div>
+                            <div class="alert alert-danger" ng-message="minlength">Username muy corto</div>
+                            <div class="alert alert-danger" ng-message="required">Required Username</div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <!-- INPUT -->
+                        <input type="text" id="first_name" name="first_name" class="form-control" placeholder="first_name" 
+                        ng-required="true" ng-model="register.first_name" ng-minlength="4" ng-maxlength="20">
+                        <!-- ERROR -->
+                        <div ng-messages="form_register.first_name.$error" ng-show="form_register.first_name.$dirty || form_register.first_name.$touched || register_Submitted">
+                            <div class="alert alert-danger" ng-message="maxlength">Nombre muy largo</div>
+                            <div class="alert alert-danger" ng-message="minlength">Nombre muy corto</div>
+                            <div class="alert alert-danger" ng-message="required">Required Nombre</div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <!-- INPUT -->
+                        <input type="text" id="last_name" name="last_name" class="form-control" placeholder="last_name" 
+                        ng-required="true" ng-model="register.last_name" ng-minlength="4" ng-maxlength="20">
+                        <!-- ERROR -->
+                        <div ng-messages="form_register.last_name.$error" ng-show="form_register.last_name.$dirty || form_register.last_name.$touched || register_Submitted">
+                            <div class="alert alert-danger" ng-message="maxlength">Apellido muy largo</div>
+                            <div class="alert alert-danger" ng-message="minlength">Apellido muy corto</div>
+                            <div class="alert alert-danger" ng-message="required">Required Apellido</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row mb-4">
+                    <div class="col">
+                        <!-- INPUT -->
+                        <input type="text" id="email" name="email" class="form-control" placeholder="email" 
+                        ng-required="true" ng-model="register.email" ng-maxlength="100" ng-pattern="/^[a-z0-9!#$%&'*+/=?^_`{|}~.-]+@[a-z0-9-]+(\.[a-z0-9-]+)*$/i">
+                        <!-- ERROR -->
+                        <div ng-messages="form_register.email.$error" ng-show="form_register.email.$dirty || form_register.email.$touched || register_Submitted">
+                            <div class="alert alert-danger" ng-message="maxlength">Email muy largo</div>
+                            <div class="alert alert-danger" ng-message="pattern">Formato del email invalido</div>
+                            <div class="alert alert-danger" ng-message="required">Required Email</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row mb-4">
+                    <div class="col">
+                        <!-- INPUT -->
+                        <input type="password" id="password" name="password" class="form-control" placeholder="password" 
+                        ng-required="true" ng-model="register.password" ng-minlength="8" ng-maxlength="20">
+                        <!-- ERROR -->
+                        <div ng-messages="form_register.password.$error" ng-show="form_register.password.$dirty || form_register.password.$touched || register_Submitted">
+                            <div class="alert alert-danger" ng-message="maxlength">Password muy larga</div>
+                            <div class="alert alert-danger" ng-message="minlength">Password muy corta (minimo 8)</div>
+                            <div class="alert alert-danger" ng-message="required">Required Password</div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <!-- INPUT -->
+                        <input type="password" id="rpassword" name="rpassword" class="form-control" placeholder="rpassword" 
+                        ng-required="true" ng-model="register.rpassword" ng-minlength="8" ng-maxlength="20" compare-to="register.password" >
+                        <!-- ERROR -->
+                        <div ng-messages="form_register.rpassword.$error" ng-show="form_register.rpassword.$dirty || form_register.rpassword.$touched || register_Submitted">
+                            <div class="alert alert-danger" ng-message="maxlength">Password muy larga</div>
+                            <div class="alert alert-danger" ng-message="minlength">Password muy corta (minimo 8)</div>
+                            <div class="alert alert-danger" ng-message="required">Required Password</div>
+                            <div class="alert alert-danger" ng-show="register.rpassword != register.password && (form_register.rpassword.$dirty || form_register.rpassword.$touched)">Las contraseñas no coinciden</div>
+                        </div>
+                    </div>
+                </div>
+                <small class="form-text text-muted">
+                    At least 8 characters and 1 digit
+                </small>
+                <button class="btn btn-info my-4 btn-block" type="submit" id="submitBtn_register" name="submit_register" 
+                ng-click="register_Submitted=true; SubmitRegister()"
+                ng-disabled="form_register.$invalid || ( form_register.rpassword.$dirty && form_register.rpassword.$valid && !form_register.rpassword.$invalid) && 
+                ( form_register.password.$modelValue != form_register.rpassword.$modelValue )">Register</button>
+                <p>Already registered?
+                    <a href="#/login/">Login</a>
+                </p>
+            </form>
+        </div>
+    </div>
+</div>

@@ -5,11 +5,20 @@
 			include(CLIENT_UTILS_LOGIN . "functions_login.inc.php");
 			
 	    }
-
 		function register(){
-			// echo json_encode($data);
-			$ok = validate_username_registered();
+			$post= file_get_contents("php://input");
+			$dataJsonDecode= json_decode($post);
+			$data = array(
+				'username' => $dataJsonDecode->username,
+				'password' => $dataJsonDecode->password,
+				"first_name" => $dataJsonDecode->first_name,
+                "last_name" => $dataJsonDecode->last_name,
+                "rpassword" => $dataJsonDecode->rpassword,
+                "email" => $dataJsonDecode->email,
+			);
+			$ok = validate_username_registered($data);
 			// echo json_encode($ok);
+			// // echo json_encode($ok);
 			if($ok['exist']==false){
 				$data=$ok['datos'];
 				$result=loadModel(CLIENT_MODEL_LOGIN,'login_model','insert_user_local',$data);
@@ -19,14 +28,14 @@
 					$mail['token']= $data['token_check'];
 					enviar_email($mail);
 				}
-				// $token_check= $ok['token_check'];
-				echo "Registrado correctamente";
+				echo "done";
 			}else{
 				echo $ok['error'];
 			}
 		}
 
 		function active_user(){
+			// echo json_encode($_GET['param']);
 			if (isset($_GET['param'])) {
 				loadModel(CLIENT_MODEL_LOGIN, "login_model", "active_user",$_GET['param']);
 	    	}	

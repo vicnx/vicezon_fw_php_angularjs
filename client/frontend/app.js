@@ -52,7 +52,20 @@ function ($routeProvider, $locationProvider) {
             templateUrl: "frontend/modules/login/view/login.view.html",
             controller: "loginCtrl",
         })
+        .when("/register",{
+            templateUrl: "frontend/modules/login/view/register.view.html",
+            controller: "registerCtrl",
+        })
 
+        .when("/login/active_user/:token",{
+            resolve:{
+                activate_user: function(services, $route){
+                    return services.get('login', 'active_user',$route.current.params.token).then(function(response){
+                        location.href = '#/'
+                    })
+                }
+            }
+        })
         .otherwise({
             redirectTo: '/home'
         });            
