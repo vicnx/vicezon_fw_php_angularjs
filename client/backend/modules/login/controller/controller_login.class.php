@@ -82,8 +82,9 @@
 		}
 
 		function recover_send_mail(){
-			$ok = validate_email_exists_local();
-
+			$post=file_get_contents("php://input");
+			$data= json_decode($post,true);
+			$ok = validate_email_exists_local($data);
 			if ($ok['exist']==true){
 				$data=$ok['data'];
 				$result=loadModel(CLIENT_MODEL_LOGIN, "login_model", "update_recover_token",$data);
@@ -99,13 +100,11 @@
 		}
 
 		function recover_password(){
-			$data= array(
-				'password' => $_POST['password'],
-				'token_recover' => $_POST['token']
-			);
+			$post=file_get_contents("php://input");
+			$data= json_decode($post,true);
 			$result=loadModel(CLIENT_MODEL_LOGIN, "login_model", "check_token",$data);
 			if($result == null){
-				echo json_encode("fail");
+				echo "fail";
 			}else{
 				loadModel(CLIENT_MODEL_LOGIN, "login_model", "recover_password",$data);
 				echo json_encode("done");

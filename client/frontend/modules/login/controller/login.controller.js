@@ -1,6 +1,11 @@
 vicezon.controller("loginCtrl",["$scope","services","$css","loginService", function($scope,services,$css,loginService){
     $css.remove(['/vicezon_fw_php_angularjs/client/frontend/assets/css/long_header.css']);
     $css.add(['/vicezon_fw_php_angularjs/client/frontend/modules/login/view/css/login.css','/vicezon_fw_php_angularjs/client/frontend/assets/css/short_header.css']);
+    
+    if(loginService.check_if_log()==true){
+        location.href = '#/home/';
+    }
+    
     $scope.login = {
         username:"test",
         password:"12345678"
@@ -37,9 +42,15 @@ vicezon.controller("loginCtrl",["$scope","services","$css","loginService", funct
     console.log("controler login loaded");
 } ])
 
+//REGISTER
 vicezon.controller("registerCtrl",["$scope","services","$css","loginService", function($scope,services,$css,loginService){
     $css.remove(['/vicezon_fw_php_angularjs/client/frontend/assets/css/long_header.css']);
     $css.add(['/vicezon_fw_php_angularjs/client/frontend/modules/login/view/css/register.css','/vicezon_fw_php_angularjs/client/frontend/assets/css/short_header.css']);
+
+    if(loginService.check_if_log()==true){
+        location.href = '#/home/';
+    }
+
     $scope.register = {
         username: "test",
         first_name: "test",
@@ -75,4 +86,74 @@ vicezon.controller("registerCtrl",["$scope","services","$css","loginService", fu
         }
     }
 
+} ])
+//RECOVER
+vicezon.controller("recoverCtrl",["$scope","services","$css","loginService", function($scope,services,$css,loginService){
+    $css.remove(['/vicezon_fw_php_angularjs/client/frontend/assets/css/long_header.css']);
+    $css.add(['/vicezon_fw_php_angularjs/client/frontend/modules/login/view/css/register.css','/vicezon_fw_php_angularjs/client/frontend/assets/css/short_header.css']);
+
+    if(loginService.check_if_log()==true){
+        location.href = '#/home/';
+    }
+
+    $scope.send_mail = {
+        email: "andanivicente@gmail.com"
+    }
+
+    $scope.SubmitSend_mail = function (){
+        if($scope.form_send_mail.$valid == false){
+            toastr.error("Revisa los campos del formulario","Error");
+        }else{
+            var data = {
+                "email": $scope.send_mail.email
+            };
+            services.post('login','recover_send_mail',data).then(function(response){
+                toastr.success("Correo de recuperacion enviado","Valid");
+                setTimeout(function () {
+                    location.href = '#/login/';
+                }, 2000);
+            })
+        }
+    }
+} ])
+
+//CHANGE PASSWORD
+vicezon.controller("change_passwordCtrl",["$scope","services","$css","loginService","$route", function($scope,services,$css,loginService,$route){
+    $css.remove(['/vicezon_fw_php_angularjs/client/frontend/assets/css/long_header.css']);
+    $css.add(['/vicezon_fw_php_angularjs/client/frontend/modules/login/view/css/register.css','/vicezon_fw_php_angularjs/client/frontend/assets/css/short_header.css']);
+
+    if(loginService.check_if_log()==true){
+        location.href = '#/home/';
+    }
+
+    $scope.change_password = {
+        password: "",
+        rpassword: ""
+    }
+
+    $scope.SubmitChange_password = function (){
+        if($scope.form_recover.$valid == false){
+            toastr.error("Revisa los campos del formulario","Error");
+        }else{
+            var data = {
+                "password": $scope.change_password.password,
+                "token_recover": $route.current.params.token
+            };
+            
+            services.post('login','recover_password',data).then(function(response){
+                console.log(response)
+                if(response=="fail"){					
+                    toastr.error("Token invalido","Invalid Token");
+                    setTimeout(function () {
+                        location.href = '#/home/';
+                    }, 2000);
+                }else{					
+                    toastr.success("Contraseñá cambaida con exito","Done");
+                    setTimeout(function () {
+                        location.href = '#/login/';
+                    }, 2000);
+                }
+            })
+        }
+    }
 } ])

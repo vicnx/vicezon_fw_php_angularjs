@@ -30,7 +30,7 @@
             case 'check':
                 $address = $mail['inputEmail'];
                 $subject= "Gracias por registrarte en Vicezon.";
-                $ruta = "http://localhost/vicezon_fw_php_angularjs/client/#/login/active_user". $mail['token'];
+                $ruta = "http://localhost/vicezon_fw_php_angularjs/client/#/login/active_user/". $mail['token'];
                 $msg = 'Gracias por unirte a nuestra aplicaci&oacute;n<br> Para finalizar el registro, pulsa ' . $ruta; 
                 $result = send_mailgun('admin@vicezon.com', $address, $subject, $msg);
                 return $result;
@@ -38,7 +38,7 @@
             case 'recover':
                 $address = $mail['inputEmail'];
                 $subject= "Change password";
-                $ruta = pretty("?module=login&function=list_recover_password&param=" . $mail['token'], true);
+                $ruta = "http://localhost/vicezon_fw_php_angularjs/client/#/recover/change_password/". $mail['token'];
                 $msg = 'Has solicitado un cambio de contraseña, si no has solicitado el cambio ignora este mensaje.<br> Para cambiar la contraseña, pulsa ' . $ruta; 
                 $result = send_mailgun('admin@vicezon.com', $address, $subject, $msg);
                 return $result;

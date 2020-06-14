@@ -33,8 +33,9 @@ function validate_username_registered($data){
     }
 }
 
-function validate_email_exists_local(){
-    $email= $_POST['email_send_mail'];
+function validate_email_exists_local($data){
+    
+    $email= $data['email'];
     $check_email= array( 'email'=>$email,'check_type'=>'email');
     $emailok = loadModel(CLIENT_MODEL_LOGIN,'login_model','exists_check_local',$check_email);
     if($emailok==null){

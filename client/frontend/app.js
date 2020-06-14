@@ -61,11 +61,25 @@ function ($routeProvider, $locationProvider) {
             resolve:{
                 activate_user: function(services, $route){
                     return services.get('login', 'active_user',$route.current.params.token).then(function(response){
-                        location.href = '#/'
+                        toastr.success("Cuenta activada con exito","Valid");
+                        setTimeout(function () {
+                            location.href = '#/login/';
+                        }, 2000);
                     })
                 }
             }
         })
+
+        .when("/recover",{
+            templateUrl: "frontend/modules/login/view/request_password.view.html",
+            controller: "recoverCtrl",
+        })
+
+        .when("/recover/change_password/:token",{
+            templateUrl: "frontend/modules/login/view/change_password.view.html",
+            controller: "change_passwordCtrl",
+        })
+
         .otherwise({
             redirectTo: '/home'
         });            

@@ -2,7 +2,8 @@ vicezon.factory("loginService", ['$location', '$rootScope', 'services',
 function ($location, $rootScope, services) {
 	var service = {};
 	service.login = login;
-	service.logout = logout;
+  service.logout = logout;
+  service.check_if_log = check_if_log;
     return service;
 
     function login() {
@@ -38,5 +39,13 @@ function ($location, $rootScope, services) {
         setTimeout(function () {
             location.href = '.';
         }, 2000);
+    }
+
+    function check_if_log(){
+      if(localStorage.getItem("id_token")){
+        return true;
+      }else{
+        return false;
+      }
     }
 }]);
