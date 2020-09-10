@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!-- <link rel="stylesheet" href="/vicezon_fw_php_angularjs/client/frontend/modules/home/view/css/home_style.css">
 <link rel="stylesheet" href="/vicezon_fw_php_angularjs/client/frontend/assets/css/long_header.css"> -->
 <div class="contenido">
@@ -149,4 +150,157 @@
             </div>
         </div>
     </div>
+=======
+<!-- <link rel="stylesheet" href="/vicezon_fw_php_angularjs/client/frontend/modules/home/view/css/home_style.css">
+<link rel="stylesheet" href="/vicezon_fw_php_angularjs/client/frontend/assets/css/long_header.css"> -->
+<div class="contenido">
+    <div class="pages">
+        <div id="contenido">
+            <div class="carousel-tablets" ng-init="locacarousel()">
+                <h1>TOP TABLETSS</h1>
+                <data-owl-carousel class="owl-carousel">
+                    <div owl-carousel-item="" ng-click="details(item.idproduct)" ng-repeat="item in products_carousel | orderBy:'-rating' | limitTo:10" class="item">
+                        <div class="product-card">
+                            <div class="badge">{{$index+1}}</div>
+                            <div class="product-tumb">
+                                <img src={{item.imagen}} alt="product img">
+                            </div>
+                            <div class="product-details">
+                                <span class="product-catagory">Tablets {{item.idproduct}}</span>
+                                <h4><a ng-href="#/shop/{{item.idproduct}}">{{item.nombre}}</a></h4>
+                                <p>{{item.colores}}</p>
+                                <div class="product-bottom-details">
+                                    <span class="product-catagory">Rating: {{item.rating}}</span>
+                                    <div class="product-price">{{item.price}}€</div>
+                                    <div class="product-links">
+                                        <a href=""><i class="fa fa-heart"></i></a>
+                                        <a href=""><i class="fa fa-shopping-cart"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </data-owl-carousel>
+            </div>
+            <hr></hr>
+                <div class= "top-brands">
+                    <h1 id="best_brands">POPULAR BRANDS</h1>
+                    <div class="top-brands-carousel">
+                        <div id="brands-cards-homepage" >
+                            <div class="brand-card" ng-click="brand_to_shop(brand.idbrand)" ng-repeat="brand in brands |orderBy:'-views' |limitTo:max_brands:position_brand" id={{brand.idbrand}}>
+                                <span>{{brand.namebrand}}</span><br></br>
+                                <span><small>{{brand.views}}</small></span>
+                            </div>
+                        </div>
+                        <a class="more_brands" ng-click="showMore_brands()" ><i class="fa fa-arrow-circle-right fa-2x"></i></a>
+                    </div>
+                </div>
+            <hr></hr>
+                <div class= "products_view">
+                    <h1 id="products_view_title">Products more visited</h1>
+                    <div id="products_more_visited">
+                        <div class="products_more_visited_products">
+                            <div class="item_more_visited" ng-click="details(item.idproduct)" ng-repeat="item in products_more_visited | orderBy: '-views' | limitTo:limit_more_visited_products" id={{item.idproduct}}>
+                                <div class="product-card">
+                                    <div class="badge">{{$index+1}}</div>
+                                    <div class="product-tumb">
+                                        <img src={{item.imagen}} alt="product img">
+                                    </div>
+                                    <div class="product-details">
+                                        <span class="product-catagory">Tablets {{item.idproduct}}</span>
+                                        <h4><a ng-href="#/shop/{{item.idproduct}}">{{item.nombre}}</a></h4>
+                                        <p>{{item.colores}}</p>
+                                        <div class="product-bottom-details">
+                                            <span class="product-catagory">Views: {{item.views}}</span>
+                                            <div class="product-price">{{item.price}}€</div>
+                                            <div class="product-links">
+                                                <a href=""><i class="fa fa-heart"></i></a>
+                                                <a href=""><i class="fa fa-shopping-cart"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="buttonloadmore">
+                        <a class="load_more_news" ng-click="showMore_products()">LOAD MORE</a>
+                        <a class="reset_news" ng-click="reset_products()" >RESET PRODUCTS</a>
+                    </div>
+                </div>
+            <hr></hr>
+            <div class="news_home" id="news_home">
+                <h1>TABLETS NEWS</h1>
+                <div class="news_home_content"  id="news_home_content">
+                    <div class='news_tablet' ng-repeat="new in news">
+                        <div class='img_news_tablet'>
+                            <img src='{{new.urlToImage}}'>
+                        </div>
+                        <div class='content_news_text'>
+                            <div class='title_news_tablet'>
+                                <h6>{{new.title}}</h6>
+                            </div>
+                            <div class='description_news_tablet'>
+                                <p>{{new.description}}</p>
+                            </div>
+                            <div class='data_news_tablet'>
+                                <p>{{new.publishedAt}}</p>
+                            </div>
+                        </div>
+                        <a href='{{new.url}}' class='view_more_news' target='_blank'>VIEW MORE</a>
+                    </div>
+                </div>
+                <div class="buttonloadmore">
+                    <a class="load_more_news" ng-click="showMore_news()">LOAD MORE NEWS</a>
+                    <a class="reset_news" ng-click="reset_news()" >RESET NEWS</a>
+                </div>
+            </div>
+            <hr></hr>
+            <div class="lroem">
+                <h2>Lorem ipsum dolor sit amet.</h2>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum aut harum eligendi 
+                quaerat distinctio. Similique, dicta. Illo aperiam debitis facere omnis deleniti fuga maxime 
+                enim voluptate accusantium exercitationem aut a blanditiis, corporis ratione asperiores eaque 
+                expedita dolores optio atque, alias laborum iste commodi laudantium! Laborum sequi pariatur qui
+                vero maxime qui vel aut praesentium atque, quaerat minima neque soluta iste officia excepturi 
+                quisquam laboriosam! Velit eos minus, ad tempora saepe numquam nisi beatae repudiandae fugiat plac
+                eat dolorem laudantium voluptatem deserunt cupiditate vitae dolores! Dolores minus obcaecati eaque ip
+                sam reiciendis pariatur, voluptatem at fuga voluptas quis consequuntur laudantium saepe ab unde.
+            </div>
+            <div class="lroem">
+                <h2>Lorem ipsum dolor sit amet.</h2>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum aut harum eligendi 
+                quaerat distinctio. Similique, dicta. Illo aperiam debitis facere omnis deleniti fuga maxime 
+                enim voluptate accusantium exercitationem aut a blanditiis, corporis ratione asperiores eaque 
+                expedita dolores optio atque, alias laborum iste commodi laudantium! Laborum sequi pariatur qui
+                vero maxime qui vel aut praesentium atque, quaerat minima neque soluta iste officia excepturi 
+                quisquam laboriosam! Velit eos minus, ad tempora saepe numquam nisi beatae repudiandae fugiat plac
+                eat dolorem laudantium voluptatem deserunt cupiditate vitae dolores! Dolores minus obcaecati eaque ip
+                sam reiciendis pariatur, voluptatem at fuga voluptas quis consequuntur laudantium saepe ab unde.
+            </div>
+            <div class="lroem">
+                <h2>Lorem ipsum dolor sit amet.</h2>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum aut harum eligendi 
+                quaerat distinctio. Similique, dicta. Illo aperiam debitis facere omnis deleniti fuga maxime 
+                enim voluptate accusantium exercitationem aut a blanditiis, corporis ratione asperiores eaque 
+                expedita dolores optio atque, alias laborum iste commodi laudantium! Laborum sequi pariatur qui
+                vero maxime qui vel aut praesentium atque, quaerat minima neque soluta iste officia excepturi 
+                quisquam laboriosam! Velit eos minus, ad tempora saepe numquam nisi beatae repudiandae fugiat plac
+                eat dolorem laudantium voluptatem deserunt cupiditate vitae dolores! Dolores minus obcaecati eaque ip
+                sam reiciendis pariatur, voluptatem at fuga voluptas quis consequuntur laudantium saepe ab unde.
+            </div>
+            <div class="lroem">
+                <h2>Lorem ipsum dolor sit amet.</h2>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum aut harum eligendi 
+                quaerat distinctio. Similique, dicta. Illo aperiam debitis facere omnis deleniti fuga maxime 
+                enim voluptate accusantium exercitationem aut a blanditiis, corporis ratione asperiores eaque 
+                expedita dolores optio atque, alias laborum iste commodi laudantium! Laborum sequi pariatur qui
+                vero maxime qui vel aut praesentium atque, quaerat minima neque soluta iste officia excepturi 
+                quisquam laboriosam! Velit eos minus, ad tempora saepe numquam nisi beatae repudiandae fugiat plac
+                eat dolorem laudantium voluptatem deserunt cupiditate vitae dolores! Dolores minus obcaecati eaque ip
+                sam reiciendis pariatur, voluptatem at fuga voluptas quis consequuntur laudantium saepe ab unde.
+            </div>
+        </div>
+    </div>
+>>>>>>> 20a3f378c865fa65857030ae93d8703bc1b22cf6
 </div>
