@@ -1,7 +1,7 @@
 vicezon.factory("services", ['$http','$q', function ($http, $q) {
     var serviceBase = '/vicezon_fw_php_angularjs/client/backend/index.php?module=';
     var obj = {};
-
+//test2
 
         obj.post = function (module, functi, dada) {
          console.log("dentro de post");
