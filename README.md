@@ -1,6 +1,8 @@
 # Vicezon migrado con FW PHP y con angularjs 1.4
-
+> Previous project: https://github.com/vicnx/vicezon_Jquery_fw_php.
+> 
 > Proyecto de una tienda de tecnologia online, migrada al framework php y a angularjs 1.4.
+> 
 > Añadidas mejoras y cambiada apariencia.
 
 ## Instrucciones para instalar: 📋
